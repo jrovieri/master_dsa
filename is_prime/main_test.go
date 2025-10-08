@@ -1,55 +1,61 @@
-package main
+package isprime
 
 import "testing"
 
-func TestIsPrimeNaive(t *testing.T) {
+func TestIsPrime1(t *testing.T) {
 
-	t.Run("Is 37 prime?", func(t *testing.T) {
-		expected := true
-		result := IsPrimeNaive(3331)
+	var input int64 = 3331
+	expected := true
+
+	t.Run("naive=37", func(t *testing.T) {
+		result := IsPrimeNaive(input)
 		if result != expected {
 			t.Errorf("expected: %t, result: %t", expected, result)
 		}
 	})
 
-	t.Run("Is 1037 prime?", func(t *testing.T) {
-		expected := true
-		result := IsPrimeNaive(7919)
-		if result != expected {
-			t.Errorf("expected: %t, result: %t", expected, result)
-		}
-	})
-
-	t.Run("Is 240 prime?", func(t *testing.T) {
-		expected := false
-		result := IsPrimeNaive(240)
+	t.Run("efficient=37", func(t *testing.T) {
+		result := IsPrime(input)
 		if result != expected {
 			t.Errorf("expected: %t, result: %t", expected, result)
 		}
 	})
 }
 
-func TestIsPrime(t *testing.T) {
+func TestIsPrime2(t *testing.T) {
 
-	t.Run("Is 37 prime?", func(t *testing.T) {
-		expected := true
-		result := IsPrime(3331)
+	var input int64 = 3331
+	expected := true
+
+	t.Run("naive=3331", func(t *testing.T) {
+		result := IsPrimeNaive(input)
 		if result != expected {
 			t.Errorf("expected: %t, result: %t", expected, result)
 		}
 	})
 
-	t.Run("Is 1037 prime?", func(t *testing.T) {
-		expected := true
-		result := IsPrime(7919)
+	t.Run("efficient=3331", func(t *testing.T) {
+		result := IsPrime(input)
+		if result != expected {
+			t.Errorf("expected: %t, result: %t", expected, result)
+		}
+	})
+}
+
+func TestIsPrime3(t *testing.T) {
+
+	var input int64 = 240
+	expected := false
+
+	t.Run("naive=240", func(t *testing.T) {
+		result := IsPrimeNaive(input)
 		if result != expected {
 			t.Errorf("expected: %t, result: %t", expected, result)
 		}
 	})
 
-	t.Run("Is 240 prime?", func(t *testing.T) {
-		expected := false
-		result := IsPrime(240)
+	t.Run("efficient=240", func(t *testing.T) {
+		result := IsPrime(input)
 		if result != expected {
 			t.Errorf("expected: %t, result: %t", expected, result)
 		}

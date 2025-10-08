@@ -1,4 +1,4 @@
-package main
+package isprime
 
 func IsPrimeNaive(n int64) bool {
 
